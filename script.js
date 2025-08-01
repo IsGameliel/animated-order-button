@@ -4,6 +4,8 @@ const finalText = document.querySelector('.final-text');
 const animationElements = document.querySelector('.animation-elements');
 const truck = document.querySelector('.truck');
 const box = document.querySelector('.box');
+const headlamp = document.querySelector('.headlamp');
+const trunk = document.querySelector('.truck #trunk'); // Assuming an ID for the trunk path
 
 orderButton.addEventListener('click', () => {
     if (orderButton.classList.contains('animating')) {
@@ -20,17 +22,28 @@ orderButton.addEventListener('click', () => {
     // 2. Box appears
     setTimeout(() => {
         box.classList.add('appear');
-    }, 250); // Box appears sooner
+    }, 250);
 
     // 3. Box goes into truck
     setTimeout(() => {
         box.classList.add('in-truck');
-    }, 750); // Box goes in sooner
+    }, 750);
 
-    // 4. Truck drives forward
+    // 4. Trunk closes
+    setTimeout(() => {
+        if(trunk) trunk.style.animation = 'trunk-close 0.5s ease-in-out forwards';
+    }, 1250);
+
+    // 5. Headlamp on
+    setTimeout(() => {
+        headlamp.classList.add('on');
+    }, 1500);
+
+    // 6. Truck drives forward
     setTimeout(() => {
         truck.classList.add('forward');
-    }, 1250); // Truck leaves sooner
+    }, 1750);
+
 
     // Reset after animation
     setTimeout(() => {
@@ -40,5 +53,7 @@ orderButton.addEventListener('click', () => {
         animationElements.style.display = 'none';
         truck.classList.remove('reverse', 'forward');
         box.classList.remove('appear', 'in-truck');
+        headlamp.classList.remove('on');
+        if(trunk) trunk.style.animation = '';
     }, 4000);
 });
