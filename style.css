@@ -62,9 +62,9 @@ body {
 
 .box {
     position: absolute;
-    width: 60px; /* Adjusted for new SVG */
-    height: 60px; /* Adjusted for new SVG */
-    bottom: -5px; /* Adjusted for new SVG */
+    width: 40px; /* Reduced size */
+    height: 40px; /* Reduced size */
+    bottom: 5px; /* Adjusted position */
     left: -80px; /* Start off-screen */
     z-index: 2;
 }
@@ -90,7 +90,7 @@ body {
 }
 
 @keyframes truck-reverse {
-    0% { right: -100px; }
+    0% { right: -100px; transform: translateX(0); }
     100% { right: 50%; transform: translateX(50%); }
 }
 
@@ -101,7 +101,7 @@ body {
 
 @keyframes box-in-truck {
     0% { left: 20%; z-index: 2; }
-    100% { left: 45%; transform: translateX(-50%); opacity: 0; z-index: 0; }
+    100% { left: 45%; opacity: 0; z-index: 0; }
 }
 
 @keyframes trunk-close {
@@ -116,7 +116,7 @@ body {
 
 @keyframes truck-forward {
     0% { right: 50%; transform: translateX(50%) scaleX(-1); }
-    100% { right: -100px; transform: scaleX(-1); }
+    100% { right: -120px; transform: translateX(50%) scaleX(-1); }
 }
 
 .truck.reverse {
@@ -129,6 +129,7 @@ body {
 
 .box.in-truck {
     animation: box-in-truck 0.5s ease-in-out forwards;
+    transform: translateX(-50%);
 }
 
 .truck .trunk { /* Assuming a class for the trunk part of the SVG */
