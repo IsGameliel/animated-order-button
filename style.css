@@ -51,24 +51,19 @@ body {
     display: none; /* Hidden by default, will be shown by JS */
 }
 
-.truck, .box {
+.truck {
     position: absolute;
     width: 60px; /* Increased width for the new SVG */
     height: 60px; /* Increased height for the new SVG */
     bottom: -5px; /* Adjusted position */
+    right: -80px; /* Start off-screen */
 }
 
 .box {
+    position: absolute;
     width: 50px; /* Increased width for the new SVG */
     height: 50px; /* Increased height for the new SVG */
     bottom: 0px; /* Adjusted position */
-}
-
-.truck {
-    right: -50px; /* Start off-screen */
-}
-
-.box {
     left: -50px; /* Start off-screen */
 }
 
