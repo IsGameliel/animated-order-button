@@ -51,19 +51,19 @@ body {
     display: none; /* Hidden by default, will be shown by JS */
 }
 
-.truck {
+.truck, .box {
     position: absolute;
-    width: 60px; /* Increased width for the new SVG */
-    height: 60px; /* Increased height for the new SVG */
-    bottom: -5px; /* Adjusted position */
-    right: -80px; /* Start off-screen */
+    width: 40px;
+    height: 40px;
+    bottom: 5px;
+    fill: white;
+}
+
+.truck {
+    right: -50px; /* Start off-screen */
 }
 
 .box {
-    position: absolute;
-    width: 50px; /* Increased width for the new SVG */
-    height: 50px; /* Increased height for the new SVG */
-    bottom: 0px; /* Adjusted position */
     left: -50px; /* Start off-screen */
 }
 
@@ -77,23 +77,23 @@ body {
 }
 
 @keyframes truck-reverse {
-    0% { right: -80px; } /* Increased starting offset */
+    0% { right: -50px; }
     100% { right: 50%; transform: translateX(50%); }
 }
 
 @keyframes box-appear {
     0% { left: -50px; }
-    100% { left: 25%; } /* Adjusted position */
+    100% { left: 30%; }
 }
 
 @keyframes box-in-truck {
-    0% { left: 25%; } /* Adjusted position */
+    0% { left: 30%; }
     100% { left: 50%; transform: translateX(-50%); opacity: 0; }
 }
 
 @keyframes truck-forward {
     0% { right: 50%; transform: translateX(50%) scaleX(-1); }
-    100% { right: -80px; transform: scaleX(-1) translateX(0px); } /* Adjusted transform */
+    100% { right: -80px; transform: scaleX(-1); }
 }
 
 .truck.reverse {
@@ -110,7 +110,6 @@ body {
 
 .truck.forward {
     animation: truck-forward 1s ease-in-out forwards;
-    transform: scaleX(-1); /* To make it look like it's driving forward */
 }
 
 .order-button.animating .final-text {
