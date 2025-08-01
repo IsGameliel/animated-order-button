@@ -6,6 +6,7 @@ const truck = document.querySelector('.truck');
 const box = document.querySelector('.box');
 const headlamp = document.querySelector('.headlamp');
 const trunk = document.querySelector('.truck #trunk'); // Assuming an ID for the trunk path
+const road = document.querySelector('.road');
 
 orderButton.addEventListener('click', () => {
     if (orderButton.classList.contains('animating')) {
@@ -18,6 +19,7 @@ orderButton.addEventListener('click', () => {
 
     // 1. Truck reverses
     truck.classList.add('reverse');
+    road.classList.add('moving');
 
     // 2. Box appears
     setTimeout(() => {
@@ -55,5 +57,6 @@ orderButton.addEventListener('click', () => {
         box.classList.remove('appear', 'in-truck');
         headlamp.classList.remove('on');
         if(trunk) trunk.style.animation = '';
+        road.classList.remove('moving');
     }, 4000);
 });
