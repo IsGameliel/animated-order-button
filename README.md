@@ -25,4 +25,10 @@ I've put a lot of effort into creating this animated button, and I'm proud of th
 *   **Suggest new features:** If you have an idea for a new feature or improvement, please open an issue to discuss it.
 *   **Submit a pull request:** If you'd like to contribute code to the project, please open a pull request. I'm always happy to review and merge contributions from the community.
 
+## Support My Work
+
+If you find this project useful and would like to support my work, you can buy me a coffee!
+
+<a href="https://buymeacoffee.com/eugeneibisz" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
 Thank you for your support!
