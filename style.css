@@ -1,0 +1,123 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.order-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.initial-text, .final-text {
+    transition: opacity 0.3s ease;
+}
+
+.final-text {
+    opacity: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+
+.animation-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: none; /* Hidden by default, will be shown by JS */
+}
+
+.truck, .box {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: 5px;
+    fill: white;
+}
+
+.truck {
+    right: -50px; /* Start off-screen */
+}
+
+.box {
+    left: -50px; /* Start off-screen */
+}
+
+/* Animations */
+.order-button.animating .initial-text {
+    opacity: 0;
+}
+
+.order-button.animating .animation-elements {
+    display: block;
+}
+
+@keyframes truck-reverse {
+    0% { right: -50px; }
+    100% { right: 50%; transform: translateX(50%); }
+}
+
+@keyframes box-appear {
+    0% { left: -50px; }
+    100% { left: 30%; }
+}
+
+@keyframes box-in-truck {
+    0% { left: 30%; }
+    100% { left: 50%; transform: translateX(-50%); opacity: 0; }
+}
+
+@keyframes truck-forward {
+    0% { right: 50%; transform: translateX(50%); }
+    100% { right: -50px; transform: scaleX(-1) translateX(-50px); }
+}
+
+.truck.reverse {
+    animation: truck-reverse 1s ease-in-out forwards;
+}
+
+.box.appear {
+    animation: box-appear 0.5s ease-in-out forwards;
+}
+
+.box.in-truck {
+    animation: box-in-truck 0.5s ease-in-out forwards;
+}
+
+.truck.forward {
+    animation: truck-forward 1s ease-in-out forwards;
+    transform: scaleX(-1); /* To make it look like it's driving forward */
+}
+
+.order-button.animating .final-text {
+    animation: fade-in 0.5s 2.5s forwards;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
