@@ -20,17 +20,17 @@ orderButton.addEventListener('click', () => {
     // 2. Box appears
     setTimeout(() => {
         box.classList.add('appear');
-    }, 500);
+    }, 250); // Box appears sooner
 
     // 3. Box goes into truck
     setTimeout(() => {
         box.classList.add('in-truck');
-    }, 1000);
+    }, 750); // Box goes in sooner
 
     // 4. Truck drives forward
     setTimeout(() => {
         truck.classList.add('forward');
-    }, 1500);
+    }, 1250); // Truck leaves sooner
 
     // Reset after animation
     setTimeout(() => {
