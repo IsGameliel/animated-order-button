@@ -53,10 +53,15 @@ body {
 
 .truck, .box {
     position: absolute;
-    width: 40px;
-    height: 40px;
-    bottom: 5px;
-    fill: white;
+    width: 60px; /* Increased width for the new SVG */
+    height: 60px; /* Increased height for the new SVG */
+    bottom: -5px; /* Adjusted position */
+}
+
+.box {
+    width: 50px; /* Increased width for the new SVG */
+    height: 50px; /* Increased height for the new SVG */
+    bottom: 0px; /* Adjusted position */
 }
 
 .truck {
@@ -77,23 +82,23 @@ body {
 }
 
 @keyframes truck-reverse {
-    0% { right: -50px; }
+    0% { right: -80px; } /* Increased starting offset */
     100% { right: 50%; transform: translateX(50%); }
 }
 
 @keyframes box-appear {
     0% { left: -50px; }
-    100% { left: 30%; }
+    100% { left: 25%; } /* Adjusted position */
 }
 
 @keyframes box-in-truck {
-    0% { left: 30%; }
+    0% { left: 25%; } /* Adjusted position */
     100% { left: 50%; transform: translateX(-50%); opacity: 0; }
 }
 
 @keyframes truck-forward {
-    0% { right: 50%; transform: translateX(50%); }
-    100% { right: -50px; transform: scaleX(-1) translateX(-50px); }
+    0% { right: 50%; transform: translateX(50%) scaleX(-1); }
+    100% { right: -80px; transform: scaleX(-1) translateX(0px); } /* Adjusted transform */
 }
 
 .truck.reverse {
