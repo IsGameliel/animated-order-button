@@ -13,7 +13,7 @@ body {
     border: none;
     padding: 15px 30px;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 25px; /* Rounded edges */
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -51,20 +51,33 @@ body {
     display: none; /* Hidden by default, will be shown by JS */
 }
 
-.truck, .box {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    bottom: 5px;
-    fill: white;
-}
-
 .truck {
-    right: -50px; /* Start off-screen */
+    position: absolute;
+    width: 80px; /* Adjusted for new SVG */
+    height: 80px; /* Adjusted for new SVG */
+    bottom: -15px; /* Adjusted for new SVG */
+    right: -100px; /* Start off-screen */
+    z-index: 1;
 }
 
 .box {
-    left: -50px; /* Start off-screen */
+    position: absolute;
+    width: 60px; /* Adjusted for new SVG */
+    height: 60px; /* Adjusted for new SVG */
+    bottom: -5px; /* Adjusted for new SVG */
+    left: -80px; /* Start off-screen */
+    z-index: 2;
+}
+
+.headlamp {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: yellow;
+    border-radius: 50%;
+    top: 42px;
+    right: 5px;
+    display: none;
 }
 
 /* Animations */
@@ -77,23 +90,33 @@ body {
 }
 
 @keyframes truck-reverse {
-    0% { right: -50px; }
+    0% { right: -100px; }
     100% { right: 50%; transform: translateX(50%); }
 }
 
 @keyframes box-appear {
-    0% { left: -50px; }
-    100% { left: 30%; }
+    0% { left: -80px; }
+    100% { left: 20%; }
 }
 
 @keyframes box-in-truck {
-    0% { left: 30%; }
-    100% { left: 50%; transform: translateX(-50%); opacity: 0; }
+    0% { left: 20%; z-index: 2; }
+    100% { left: 45%; transform: translateX(-50%); opacity: 0; z-index: 0; }
+}
+
+@keyframes trunk-close {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-90deg); }
+}
+
+@keyframes headlamp-on {
+    0% { box-shadow: none; }
+    100% { box-shadow: 0 0 10px 5px yellow; }
 }
 
 @keyframes truck-forward {
     0% { right: 50%; transform: translateX(50%) scaleX(-1); }
-    100% { right: -80px; transform: scaleX(-1); }
+    100% { right: -100px; transform: scaleX(-1); }
 }
 
 .truck.reverse {
@@ -106,6 +129,15 @@ body {
 
 .box.in-truck {
     animation: box-in-truck 0.5s ease-in-out forwards;
+}
+
+.truck .trunk { /* Assuming a class for the trunk part of the SVG */
+    animation: trunk-close 0.5s ease-in-out forwards;
+}
+
+.truck .headlamp.on {
+    display: block;
+    animation: headlamp-on 0.2s ease-in-out forwards;
 }
 
 .truck.forward {
